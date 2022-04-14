@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 
-class TodoSerializer(serializers.HyperlinkedModelSerializer):
+class TodoSerializer(serializers.ModelSerializer):
     created_by = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(),
     )
@@ -46,7 +46,7 @@ class CategorySerializer(serializers.ModelSerializer):
             'updated_at',
         ]
         
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [

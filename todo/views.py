@@ -6,12 +6,12 @@ from .serializers import TodoSerializer, EventSerializer, CategorySerializer
 class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all().select_related('created_by')
     serializer_class = TodoSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
